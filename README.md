@@ -15,7 +15,7 @@ d.save in svg format
 
 step 2 : create data file 'stratenplan.dat'  
 
-a. use xcoord/ycoord from previous step  to define nodes (crossroads a-k)     
+a. use xcoord/ycoord from step 1 to define nodes (crossroads a-k)     
 b. define set of accesspoints to your district (toegangspoort set)   
 c. define set of all fixed street directions based on existing setup (initialstraat set)  
 d. define set of all changeable street directions (changestreet set). Make list as long as possible limited by calculation time and your AMPL license. Avoid repeats in initialstraat and changestreet.      
