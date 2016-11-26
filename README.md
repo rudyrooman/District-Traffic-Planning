@@ -15,8 +15,8 @@ d.save in svg format
 
 step 2 : create data file 'stratenplan.dat'  
 
-a. use xcoord/ycoord from previous step  to define crossreads ( a-k)   
-b. define accespoints to your district in set toegangspoort    
+a. use xcoord/ycoord from previous step  to define nodes (crossroads a-k)     
+b. define accesspoints to your district in set toegangspoort    
 c. define existing setup : Specify every streetdirection.       
    Actual length is irrelevant. We consider crossroads as nodes in a graph--> length =1. I use length=3 for traffic lights to consider time loss.  
 d. list the streets that you are prepared to change as a planner. Make list as long as possible limited by calculation time and your AMPL license.    
