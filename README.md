@@ -3,7 +3,7 @@ Find a balance between reduced cut-through traffic and accessibility of your dis
 
 step 1: create coordinates set of crossroads     
 
-a.select crossroads on gps visualizer   
+a.define and save waypoints on gps visualizer   
 http://www.gpsvisualizer.com/draw/ 
 
 b.save in gpx format.
