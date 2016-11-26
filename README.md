@@ -1,5 +1,5 @@
 # District-Traffic-Planning
-Find a balance between reduced cut-through traffic and accesibility of your district.  
+Find a balance between reduced cut-through traffic and accessibility of your district.  
 
 step 1: create coordinates set of crossroads     
 
@@ -26,7 +26,7 @@ f. impose requirements on inbound and outbound distances between any street and 
 g. use langsteuitweg , langsteinweg param to give maximum inbound and outbounddistances for any node.  
 	this ensures that all streets have reasonable travel distances.  
 
-step 3: solve in ampl  
+step 3: solve in ampl ( minimizes bidirectional streets) 
 
 step 4. open '2018plan.svg' to evaluatie result.   
 
