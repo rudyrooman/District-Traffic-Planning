@@ -1,0 +1,72 @@
+data;
+
+param langsteinweg := 9;
+param langsteuitweg := 9;
+
+param: kruispunt: 	xcoord 		ycoord :=
+		a		219.0277	238.6967
+		r		75.6874		394.5767
+		c		168.4401	473.2218
+		b		182.4886	408.6156
+		d		376.2669	660
+		e		453.563 	560.9964
+		f		499.9394	521.6686
+		j  		382.5936	406.516
+		i		450.7533	466.2023
+		g		624.3126	379.1276
+		h		573.0177	313.832
+		m		506.2595	247.1263
+		n		570.208		147.4228
+		o		530.1518	40
+		p		478.8568	70.1879
+		l  		409.2955	215.5283
+		q  		261.8936   202.8891
+		k		345.5099	355.9592;
+
+set toegangspoort = a o g r d ;
+
+# hieronder staan alle straten die je wil behouden, straten die gewijzigd worden staan er in met twee richtingen
+param:  straat: lengte:=
+         a b 1,  a q 1, a r 1  
+         b k 1   
+         c b 1,  c d 1 , c r 1  
+         d e 1   
+         e f 1,  e j 1
+         f i 1,  f g 1
+         g h 1, g n 1   
+         h i 1, h m 1, h g 1
+         i h 1, i j 1, i f 1
+         j k 1, j i 1, j m 1, j e 1
+         k l 1, k j 1, k a 1
+         l m 1, l q 1, l p 1
+         m h 1, m n 1, m l 1,m j 1
+         n o 3, n g 3  # weg vankruispunt met rood licht
+         o p 3, o n 3  # weg vankruispunt met rood licht
+         p o 1, p q 1, p l 1
+         q a 1, q l 1, q p 1
+         r a 1, r c 1; 
+         
+ # geef de straten die je wil wijzigen in de twee richtingen op
+ # moeten ook bestaan in straat
+ set changestreet := j m, m j, i h, h i, l m, m l, m h, h m, h g , g h;# j i, i j, i f, f i;
+ 
+ set enkelrichting = ; # maximaliseert enkelrichtingen 
+ set tweerichting = ;
+ set vasterichting = ;
+
+
+param:  inrijden: maxinafstand:=
+        g j 3, o j 6, a m 3, g m 2
+         ;
+# definieer "inrijden elementen bij maxinafstand met max afstand !
+param  mininafstand:=
+       
+        ; 
+                   
+param:  uitrijden: maxuitafstand:=
+         m g 4, m a 3
+         ;
+param  minuitafstand:=
+       
+        ;  
+         

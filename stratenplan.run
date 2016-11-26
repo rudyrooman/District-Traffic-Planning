@@ -1,0 +1,84 @@
+reset;
+option display_transpose -20;
+option solver_msg 1;
+option solver cplex;
+
+model '/home/rudy/Dropbox/IT/ampl/stratenplan/stratenplan.mod';
+data '/home/rudy/Dropbox/IT/ampl/stratenplan/stratenplan.dat';
+
+
+solve;
+
+
+# Print SVG file header.
+# ---------------------------------------------------------
+# Print SVG file header.
+printf "<?xml version=""1.0"" standalone=""yes""?>\n<!DOCTYPE svg PUBLIC ""-//W3C//DTD SVG 20010904//EN"" ""http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"">\n<svg viewBox=""%g %g %g %g"" xmlns=""http://www.w3.org/2000/svg"">\n<g>",
+	-0.05*max{i in kruispunt} xcoord[i], -0.05*max{i in kruispunt} ycoord[i], 1.3*max{i in kruispunt} xcoord[i], 1.3*max{i in kruispunt} ycoord[i] > '2018plan.svg';
+
+
+# print definition of arrow naar svg bestand 
+
+print "<defs>  <marker id=""markerArrow"" markerWidth=""13"" markerHeight=""13"" refX=""20"" refY=""6"" orient=""auto""> <path d=""M2,2 L2,11 L10,6 L2,2"" style=""fill: #000000;"" /> </marker> </defs>" > '2018plan.svg';
+print "<defs>  <marker id=""markerArrow2"" markerWidth=""13"" markerUnits=""userSpaceOnUse"" markerHeight=""13"" refX=""20"" refY=""6"" orient=""auto""> <path d=""M2,2 L2,11 L10,6 L2,2"" style=""fill: #000002;"" /> </marker> </defs>" > '2018plan.svg';
+
+# wit rechthoek
+print "<rect x=""-35"" y=""-35"" height=""900"" width=""900"" style=""stroke:white; fill: white""/>" > '2018plan.svg';
+
+# Print the nieuwe straten 
+# ---------------------------------------------------------
+for {(i,j) in changestreet: richtinggebruikt[i,j]= 1}
+{	if richtinggebruikt[j,i]= 1 then # print a black line voor een tweerichtingsstraat
+	{	printf "<line stroke-width=""%g"" stroke=""black"" x1=""%g"" y1=""%g"" x2=""%g"" y2=""%g""/>\n",
+			3, xcoord[i], ycoord[i], xcoord[j], ycoord[j] > '2018plan.svg';
+	}
+	else # dit is een enkelrichting 
+	{	printf "<line stroke-width=""%g"" marker-end=""url(#markerArrow)"" stroke=""black"" x1=""%g"" y1=""%g"" x2=""%g"" y2=""%g""/>\n",
+			2, xcoord[i], ycoord[i], xcoord[j], ycoord[j] > '2018plan.svg';
+		 
+	}
+}
+
+# Print the oude straten 
+# ---------------------------------------------------------
+for {(i,j) in straat}
+{	if (j,i) in straat then # print a black line voor een tweerichtingsstraat
+	{	printf "<line stroke-width=""%g"" stroke=""black"" x1=""%g"" y1=""%g"" x2=""%g"" y2=""%g""/>\n",
+			3, xcoord[i], ycoord[i], xcoord[j], ycoord[j]> '2018plan.svg' ;
+	}
+	else # dit is een enkelrichting 
+	{	printf "<line stroke-width=""%g"" marker-end=""url(#markerArrow)"" stroke=""black"" x1=""%g"" y1=""%g"" x2=""%g"" y2=""%g""/>\n",
+			2, xcoord[i], ycoord[i], xcoord[j], ycoord[j] > '2018plan.svg';
+		 
+	}
+}
+
+
+
+
+# Print the nodes and their labels.
+# ---------------------------------------------------------
+for {i in kruispunt}
+{	# Print circles on the nodes.
+	printf "<circle fill=""black"" stroke=""black"" stroke-width=""%g"" cx=""%g"" cy=""%g"" r=""%g""/>\n",
+	2, xcoord[i], ycoord[i], 4 > '2018plan.svg';
+
+	# Print labels in the nodes.
+	 printf "<text fill=""blue"" font-size=""%g"" x=""%g"" y=""%g"">%s</text>\n",
+	 20, xcoord[i]+12, ycoord[i]+10, i > '2018plan.svg';
+}
+
+
+
+# Print the end of the file, and close it.
+# ---------------------------------------------------------
+printf "</g></svg>" > '2018plan.svg';
+
+print "";
+printf "Stratenplan is getekend.\n";
+
+# we geven de gebruikte straten met hun lengte weer om als nieuwe plan 
+# nieuwe straten
+for {k in kruispunt, l in kruispunt: (k,l) in changestreet and richtinggebruikt[k,l]=1} {printf "%s %s %u \n", k,l,lengte[k,l] ;}
+#bestaande straten
+for {k in kruispunt, l in kruispunt: (k,l) in straat } {printf "%s %s %u \n", k,l,lengte[k,l] ;}
