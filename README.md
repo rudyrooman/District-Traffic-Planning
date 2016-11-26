@@ -1,5 +1,5 @@
 # District-Traffic-Planning
-Find a balance between reduced cut-through traffic and accessibility of your district.  
+Balance reduced cut-through traffic with accessibility of your city district.   
 
 **step 1: create coordinates set of crossroads**     
 
