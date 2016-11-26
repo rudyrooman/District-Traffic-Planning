@@ -18,16 +18,18 @@ step 2 : create data file 'stratenplan.dat'
 a. use xcoord/ycoord from previous step  to define crossreads ( a-k)   
 b. define accespoints to your district in set toegangspoort    
 c. define existing setup : Specify every streetdirection.       
-   Actual length is irrelevant. We consider crossroads as nodes in a graph--> length =1. I use length=3 to indicate traffic lights to consider waiting time.  
-d. list the streets that you are prepared to change as a planner. Make list as long as possible limited by calculation time and limits of your license.    
+   Actual length is irrelevant. We consider crossroads as nodes in a graph--> length =1. I use length=3 for traffic lights to consider time loss.  
+d. list the streets that you are prepared to change as a planner. Make list as long as possible limited by calculation time and your AMPL license.    
 e. impose certain requirements via set enkelrichting ,set tweerichting ,set vasterichting   
-f. impose requirements on inbound and outbound distances between any street and an accesspoint 
-   conflicting requirements lead to failure.  
+f. impose requirements on inbound and outbound distances between any street and an accesspoint.   
+   conflicting requirements lead to failure.    
 g. use langsteuitweg , langsteinweg param to give maximum inbound and outbounddistances for any node.  
 	this ensures that all streets have reasonable travel distances.  
 
 step 3: solve in ampl ( minimizes bidirectional streets) 
 
-step 4. open '2018plan.svg' to evaluatie result.   
+step 4. open '2018plan.svg' to evaluate your result.   
+
+Repeat from step 2d. until you are satisfiedwith the outcome. 
 
 Have fun!
