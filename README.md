@@ -1,7 +1,7 @@
 # District-Traffic-Planning
 Find a balance between reduced cut-through traffic and accesibility of your district.  
 
-step 1 : create coordinates of crossroads data   
+step 1: create coordinates set of crossroads     
 
 a.select crossroads on gps visualizer   
 http://www.gpsvisualizer.com/draw/ 
@@ -17,9 +17,9 @@ step 2 : create data file 'stratenplan.dat'
 
 a. use xcoord/ycoord from previous step  to define crossreads ( a-k)   
 b. define accespoints to your district in set toegangspoort    
-c. define existing setup : Every streetdirection is specfied.     
-   Actual length is irrelevant. We consider crossroads as nodes in a graph--> length =1. I use length=3 to indicate traffic lights.  
-d. list the streets that you are prepared to change as a planner.   
+c. define existing setup : Specify every streetdirection.       
+   Actual length is irrelevant. We consider crossroads as nodes in a graph--> length =1. I use length=3 to indicate traffic lights to consider waiting time.  
+d. list the streets that you are prepared to change as a planner. Make list as long as possible limited by calculation time and limits of your license.    
 e. impose certain requirements via set enkelrichting ,set tweerichting ,set vasterichting   
 f. impose requirements on inbound and outbound distances between any street and an accesspoint 
    conflicting requirements lead to failure.  
@@ -28,5 +28,6 @@ g. use langsteuitweg , langsteinweg param to give maximum inbound and outbounddi
 
 step 3: solve in ampl  
 
-step 4. evaluate the result in svg format.   
+step 4. open '2018plan.svg' to evaluatie result.   
 
+Have fun!
