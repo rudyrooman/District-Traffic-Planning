@@ -23,7 +23,6 @@ set tweerichting within changestreet;
 set vasterichting within changestreet;
 
 # hieronder de inrij voorwaarden. 
-
 set inrijden within toegangspoort cross (kruispunt diff toegangspoort); 
 param mininafstand {inrijden} default 1 integer;
 param maxinafstand {inrijden} integer;
@@ -48,7 +47,6 @@ subject to kruispuntevenwichtin {(i,j) in inrijden, l in kruispunt : l <> i and 
    	sum {k in kruispunt : (k,l) in straat} Usein[i,j,k,l] = sum {m in kruispunt: (l,m) in straat } Usein[i,j,l,m];
    
 # hieronder de uitrij voorwaarden. 
-
 set uitrijden within (kruispunt diff toegangspoort) cross toegangspoort; 
 param minuitafstand {uitrijden} default 1 integer;
 param maxuitafstand {uitrijden} integer; 

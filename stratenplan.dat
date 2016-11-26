@@ -69,26 +69,24 @@ param  lengte:=
          q a 1, q l 1, q p 1
          r a 1, r c 1
          j m 1, m j 1, i h 1, h i 1, l m 1, m l 1, m h 1, h m 1, h g 1, g h 1; 
-         
-
  
- set enkelrichting = ; # maximaliseert enkelrichtingen 
+ # there might be reasons to impose certain setup in a street.         
+ set enkelrichting = ; 
  set tweerichting = ;
  set vasterichting = ;
 
-
+# define maximum inbound distance from an accesspoint to a crossroad
 param:  inrijden: maxinafstand:=
         g j 3, o j 6, a m 3, g m 2
          ;
-# definieer "inrijden elementen bij maxinafstand met max afstand !
+# define minimum inbound distance from an accesspoint to a crossroad
 param  mininafstand:=
-       
         ; 
-                   
+# define maximum outbound distance from a crossroad to an accesspoint                   
 param:  uitrijden: maxuitafstand:=
          m g 4, m a 3
          ;
+# define minimum outbound distance from a crossroad to an accesspoint          
 param  minuitafstand:=
-       
         ;  
          
