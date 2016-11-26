@@ -24,7 +24,7 @@ f. impose certain requirements via set enkelrichting ,set tweerichting ,set vast
 g. impose requirements on inbound and outbound distances between any street and an accesspoint.   
    conflicting requirements lead to failure.    
 h. use langsteuitweg , langsteinweg param to give maximum inbound and outbounddistances for any node.  
-	this ensures that all streets have reasonable travel distances.  
+	this ensures that all nodes have reasonable travel distances.  
 
 step 3: solve in ampl ( minimizes bidirectional streets) 
 
