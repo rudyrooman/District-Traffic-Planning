@@ -16,7 +16,7 @@ set changestreet within kruispunt cross kruispunt  ;
 var richtinggebruikt { changestreet } integer >=0;
 
 set straat = initialstraat union changestreet; 
-param lengte { straat } >=0; 
+param lengte { straat } default 1 integer; 
 
 set enkelrichting within changestreet;
 set tweerichting within changestreet;

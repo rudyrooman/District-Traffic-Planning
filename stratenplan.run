@@ -75,10 +75,10 @@ for {i in kruispunt}
 printf "</g></svg>" > '2018plan.svg';
 
 print "";
-printf "Stratenplan is getekend.\n";
-
+printf "Nieuw stratenplan 2018plan.svg is getekend.\n";
+print "";
 # we geven de gebruikte straten met hun lengte weer om als nieuwe plan te gebruiken 
 # nieuwe straten
-for {k in kruispunt, l in kruispunt: (k,l) in changestreet and richtinggebruikt[k,l]=1} {printf "%s %s %u \n", k,l,lengte[k,l] ;}
+#for {k in kruispunt, l in kruispunt: (k,l) in changestreet and richtinggebruikt[k,l]=1} {printf "%s %s %u \n", k,l,lengte[k,l] ;}
 #bestaande straten
-for {k in kruispunt, l in kruispunt: (k,l) in initialstraat } {printf "%s %s %u \n", k,l,lengte[k,l] ;}
+#for {k in kruispunt, l in kruispunt: (k,l) in initialstraat } {printf "%s %s %u \n", k,l,lengte[k,l] ;}
