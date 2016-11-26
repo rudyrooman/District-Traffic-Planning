@@ -42,14 +42,14 @@ set initialstraat = a b ,  a q , a r
          o p , o n   # weg vankruispunt met rood licht
          p o , p q , p l 
          q a , q l , q p 
-         r a , r c ;
+		 r a , r c ;
 # set of all changeable street directions
 # always include both street directions for a changeable street         
 set changestreet = j m , m j , i h , h i , l m , m l , m h , h m , h g , g h ;
           
 
 # street lengths are helpfull for traffic lights
-# street lengts are defined for all streets =  initialstraat union changestreet
+# street lengts are defined for all streets  =  initialstraat union changestreet
 param  lengte:=
          a b 1,  a q 1, a r 1  
          b k 1   
@@ -75,18 +75,17 @@ param  lengte:=
  set tweerichting = ;
  set vasterichting = ;
 
+# list of streets with minimum of maximum inbound distance
+set inrijden = g j , o j , a m , g m ;
 # define maximum inbound distance from an accesspoint to a crossroad
-param:  inrijden: maxinafstand:=
-        g j 3, o j 6, a m 3, g m 2
-         ;
+param  maxinafstand:= g j 3, o j 6, a m 3, g m 2;
 # define minimum inbound distance from an accesspoint to a crossroad
-param  mininafstand:=
-        ; 
+param  mininafstand:= ;
+
+#list of streets with minimum of maximum outbound distance 
+set uitrijden= m g , m a ;
 # define maximum outbound distance from a crossroad to an accesspoint                   
-param:  uitrijden: maxuitafstand:=
-         m g 4, m a 3
-         ;
+param maxuitafstand:=   m g 4, m a 3;
 # define minimum outbound distance from a crossroad to an accesspoint          
-param  minuitafstand:=
-        ;  
+param  minuitafstand:= ;  
          

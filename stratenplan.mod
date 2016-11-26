@@ -25,7 +25,7 @@ set vasterichting within changestreet;
 # hieronder de inrij voorwaarden. 
 set inrijden within toegangspoort cross (kruispunt diff toegangspoort); 
 param mininafstand {inrijden} default 1 integer;
-param maxinafstand {inrijden} integer;
+param maxinafstand {inrijden} default langsteinweg integer;
 var afstandin {inrijden}; 
 
 set inroute = {inrijden,straat};
@@ -49,7 +49,7 @@ subject to kruispuntevenwichtin {(i,j) in inrijden, l in kruispunt : l <> i and 
 # hieronder de uitrij voorwaarden. 
 set uitrijden within (kruispunt diff toegangspoort) cross toegangspoort; 
 param minuitafstand {uitrijden} default 1 integer;
-param maxuitafstand {uitrijden} integer; 
+param maxuitafstand {uitrijden} default langsteuitweg integer; 
 var afstanduit {uitrijden}; 
 
 set uitroute = {uitrijden,straat};
