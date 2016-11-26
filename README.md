@@ -30,6 +30,6 @@ step 3: solve in ampl ( minimizes bidirectional streets)
 
 step 4. open '2018plan.svg' to evaluate your result.   
 
-Repeat from step 2d. until you are satisfiedwith the outcome. 
+Repeat from step 2d. until you are satisfied with the outcome. 
 
 Have fun!
