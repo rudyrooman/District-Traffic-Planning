@@ -1,8 +1,6 @@
 param langsteuitweg integer;
 param langsteinweg integer;
 
-
-
 set kruispunt;
 param xcoord {kruispunt};
 param ycoord {kruispunt};
@@ -35,8 +33,6 @@ set inroute = {inrijden,straat};
 var Usein {inroute} integer >=0,<=1;   
 
 subject to Afgelegdewegin {(i,j) in inrijden } :sum {(k,l) in straat } Usein[i,j,k,l]* lengte[k,l] = afstandin [i,j];
-
-
 
 subject to constraininrijden {(i,j) in inrijden}: afstandin [i,j] <= langsteinweg;
 subject to constraintafgelegdeweg {(i,j) in inrijden}: afstandin [i,j] <= maxinafstand[i,j];
@@ -93,7 +89,6 @@ subject to tweerichtingen {(i,j) in tweerichting  }: richtinggebruikt[i,j] + ric
 
 # rijrichting opgelegd
 subject to opgelegderichting {(i,j) in vasterichting  }: richtinggebruikt[i,j] =1 ;
-
 
 minimize tweerichtingsstraten : sum { (i,j) in changestreet } richtinggebruikt[i,j] ;
 
