@@ -41,8 +41,8 @@ for {(i,j) in changestreet: richtinggebruikt[i,j]= 1}
 
 # Print the oude straten 
 # ---------------------------------------------------------
-for {(i,j) in straat}
-{	if (j,i) in straat then # print a black line voor een tweerichtingsstraat
+for {(i,j) in initialstraat}
+{	if (j,i) in initialstraat then # print a black line voor een tweerichtingsstraat
 	{	printf "<line stroke-width=""%g"" stroke=""black"" x1=""%g"" y1=""%g"" x2=""%g"" y2=""%g""/>\n",
 			3, xcoord[i], ycoord[i], xcoord[j], ycoord[j]> '2018plan.svg' ;
 	}
@@ -77,8 +77,8 @@ printf "</g></svg>" > '2018plan.svg';
 print "";
 printf "Stratenplan is getekend.\n";
 
-# we geven de gebruikte straten met hun lengte weer om als nieuwe plan 
+# we geven de gebruikte straten met hun lengte weer om als nieuwe plan te gebruiken 
 # nieuwe straten
 for {k in kruispunt, l in kruispunt: (k,l) in changestreet and richtinggebruikt[k,l]=1} {printf "%s %s %u \n", k,l,lengte[k,l] ;}
 #bestaande straten
-for {k in kruispunt, l in kruispunt: (k,l) in straat } {printf "%s %s %u \n", k,l,lengte[k,l] ;}
+for {k in kruispunt, l in kruispunt: (k,l) in initialstraat } {printf "%s %s %u \n", k,l,lengte[k,l] ;}

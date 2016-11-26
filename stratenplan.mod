@@ -7,13 +7,18 @@ set kruispunt;
 param xcoord {kruispunt};
 param ycoord {kruispunt};
 
+# access points to your district
 set toegangspoort within kruispunt;
 
-set straat within kruispunt cross kruispunt  ;
-param lengte { straat } >=0; 
+# fixed street directions
+set initialstraat within kruispunt cross kruispunt  ;
 
-set changestreet within straat  ;
+# changeable street directions
+set changestreet within kruispunt cross kruispunt  ;
 var richtinggebruikt { changestreet } integer >=0;
+
+set straat = initialstraat union changestreet; 
+param lengte { straat } >=0; 
 
 set enkelrichting within changestreet;
 set tweerichting within changestreet;

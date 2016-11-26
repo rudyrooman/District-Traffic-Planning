@@ -25,30 +25,52 @@ param: kruispunt: 	xcoord 		ycoord :=
 
 set toegangspoort = a o g r d ;
 
-# list below existing street directions + possible new directions
-param:  straat: lengte:=
+# set of all fixed streets directions 
+set initialstraat = a b ,  a q , a r   
+         b k    
+         c b ,  c d  , c r   
+         d e    
+         e f ,  e j 
+         f i ,  f g 
+         g n    
+         i j , i f 
+         j k , j i , j e 
+         k l , k j , k a 
+         l q , l p 
+         m n 
+         n o , n g   # weg vankruispunt met rood licht
+         o p , o n   # weg vankruispunt met rood licht
+         p o , p q , p l 
+         q a , q l , q p 
+         r a , r c ;
+# set of all changeable street directions
+# always include both street directions for a changeable street         
+set changestreet = j m , m j , i h , h i , l m , m l , m h , h m , h g , g h ;
+          
+
+# street lengths are helpfull for traffic lights
+# street lengts are defined for all streets =  initialstraat union changestreet
+param  lengte:=
          a b 1,  a q 1, a r 1  
          b k 1   
          c b 1,  c d 1 , c r 1  
          d e 1   
          e f 1,  e j 1
          f i 1,  f g 1
-         g h 1, g n 1   
-         h i 1, h m 1, h g 1
-         i h 1, i j 1, i f 1
-         j k 1, j i 1, j m 1, j e 1
+         g n 1   
+         i j 1, i f 1
+         j k 1, j i 1, j e 1
          k l 1, k j 1, k a 1
-         l m 1, l q 1, l p 1
-         m h 1, m n 1, m l 1,m j 1
-         n o 3, n g 3  # leaving  traffic light
-         o p 3, o n 3  # leaving traffic light
+         l q 1, l p 1
+         m n 1
+         n o 3, n g 3  # weg vankruispunt met rood licht
+         o p 3, o n 3  # weg vankruispunt met rood licht
          p o 1, p q 1, p l 1
          q a 1, q l 1, q p 1
-         r a 1, r c 1; 
+         r a 1, r c 1
+         j m 1, m j 1, i h 1, h i 1, l m 1, m l 1, m h 1, h m 1, h g 1, g h 1; 
          
- # list street directions open for change (3 options: keep/remove/add)
- # should exist in straat set 
- set changestreet := j m, m j, i h, h i, l m, m l, m h, h m, h g , g h;# j i, i j, i f, f i;
+
  
  set enkelrichting = ; # maximaliseert enkelrichtingen 
  set tweerichting = ;
