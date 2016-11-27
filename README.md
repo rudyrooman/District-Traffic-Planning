@@ -15,11 +15,12 @@ d.save in svg format
 
 **step 2 : draw map of existing situation** 
 
-
-
+Go tot /drawsvgmap/ and populate a *.dat file with your data.  
+Run tekenstratenplan.run in ampl ide and result is graph.svg  
+  
 **step 3 : create data file 'stratenplan.dat'**  
 
-a. use xcoord/ycoord from step 1 to define nodes (crossroads a-k)  
+a. use xcoord/ycoord from step 2 to define nodes (crossroads a-k)  
 
 b. define set of accesspoints to your district (toegangspoort set)   
 
