@@ -1,0 +1,42 @@
+data;
+
+param: kruispunt: 	xcoord 		ycoord :=
+		a		219.0277	238.6967
+		r		75.6874		394.5767
+		c		168.4401	473.2218
+		b		182.4886	408.6156
+		d		376.2669	660
+		e		453.563 	560.9964
+		f		499.9394	521.6686
+		j  		382.5936	406.516
+		i		450.7533	466.2023
+		g		624.3126	379.1276
+		h		573.0177	313.832
+		m		506.2595	247.1263
+		n		570.208		147.4228
+		o		530.1518	40
+		p		478.8568	70.1879
+		l  		409.2955	215.5283
+		q  		261.8936   202.8891
+		k		345.5099	355.9592;
+
+
+set  straat =
+         a b ,  a q , a r   
+         b k    
+         c b ,  c d  , c r   
+         d e    
+         e f ,  e j 
+         f i ,  f g 
+         g n    
+         h g 
+         i h , i j , i f 
+         j k , j i , j e 
+         k l , k j , k a 
+         l m , l q , l p 
+         m h , m n , m j 
+         n o , n g   # weg vankruispunt met rood licht
+         o p , o n   # weg vankruispunt met rood licht
+         p o , p q , p l 
+         q a , q l , q p 
+         r a , r c ;
