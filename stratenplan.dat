@@ -52,15 +52,12 @@ set vasterichting = ;
 set inrijden = g j , o j , a m , g m ;
 # define maximum inbound distance from an accesspoint to a crossroad
 param  maxinafstand:= g j 3, o j 6, a m 3, g m 2;
-# define minimum inbound distance from an accesspoint to a crossroad
-# does not work yet
-param  mininafstand:= ;
+
+
 
 #list of streets with minimum of maximum outbound distance 
 set uitrijden= m g , m a , h a ;
 # define maximum outbound distance from a crossroad to an accesspoint                   
 param maxuitafstand:=   m g 4, m a 3;
-# define minimum outbound distance from a crossroad to an accesspoint 
-# does not work yet( always find a route via 5 or more nodes)         
-param  minuitafstand:= h a 5;  
+
          

@@ -27,7 +27,6 @@ set vasterichting within changestreet;
 
 # hieronder de inrij voorwaarden. 
 set inrijden within toegangspoort cross (kruispunt diff toegangspoort); 
-param mininafstand {inrijden} default 1 integer;
 param maxinafstand {inrijden} default langsteinweg integer;
 var afstandin {inrijden}; 
 
@@ -38,7 +37,6 @@ subject to Afgelegdewegin {(i,j) in inrijden } :sum {(k,l) in straat } Usein[i,j
 
 subject to constraininrijden {(i,j) in inrijden}: afstandin [i,j] <= langsteinweg;
 subject to constraintafgelegdeweg {(i,j) in inrijden}: afstandin [i,j] <= maxinafstand[i,j];
-subject to constraintminafgelegdeweg {(i,j) in inrijden}: afstandin [i,j] >= mininafstand[i,j];
 
 subject to Beginin {(i,j) in inrijden} : sum {k in kruispunt : (i,k) in straat } Usein[i,j,i,k] = 1;
 subject to nietaankomeninstartin{(i,j) in inrijden} : sum {k in kruispunt : (k,i) in straat } Usein[i,j,k,i] = 0;
@@ -51,7 +49,6 @@ subject to kruispuntevenwichtin {(i,j) in inrijden, l in kruispunt : l <> i and 
    
 # hieronder de uitrij voorwaarden. 
 set uitrijden within (kruispunt diff toegangspoort) cross toegangspoort; 
-param minuitafstand {uitrijden} default 1 integer;
 param maxuitafstand {uitrijden} default langsteuitweg integer; 
 var afstanduit {uitrijden}; 
 
@@ -62,7 +59,7 @@ subject to Afgelegdeweguit {(i,j) in uitrijden } :sum {(k,l) in straat } Useuit[
 
 subject to constrainuitrijden {(i,j) in uitrijden}: afstanduit [i,j] <= langsteuitweg;
 subject to constraintuitafgelegdeweg {(i,j) in uitrijden}: afstanduit [i,j] <= maxuitafstand[i,j];
-subject to constraintminuitafgelegdeweg {(i,j) in uitrijden}: afstanduit [i,j] >= minuitafstand[i,j];
+#subject to constraintminuitafgelegdeweg {(i,j) in uitrijden}: afstanduit [i,j] >= minuitafstand[i,j];
 
 subject to Beginuit {(i,j) in uitrijden} : sum {k in kruispunt : (i,k) in straat } Useuit[i,j,i,k] = 1;
 subject to nietaankomeninstartuit{(i,j) in uitrijden} : sum {k in kruispunt : (k,i) in straat } Useuit[i,j,k,i] = 0;
