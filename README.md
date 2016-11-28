@@ -32,7 +32,7 @@ e. define length param for all street directions. Actual length is irrelevant. W
 
 f. impose certain requirements via set enkelrichting, set tweerichting, set vasterichting   
 
-g. impose requirements on inbound and outbound distances between any street and an accesspoint.   
+g. impose requirements on minimum(not yet ok!) and maximum  inbound and outbound distances between any street and an accesspoint.   
    conflicting requirements lead to failure.  
    
 h. use langsteuitweg, langsteinweg param to give maximum inbound and outbounddistances for any node.  
