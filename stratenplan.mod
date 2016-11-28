@@ -8,14 +8,17 @@ param ycoord {kruispunt};
 # access points to your district
 set toegangspoort within kruispunt;
 
+# current plan 
+set currentstreet within kruispunt cross kruispunt  ;
+
 # fixed street directions
-set initialstraat within kruispunt cross kruispunt  ;
+set fixstreet within kruispunt cross kruispunt  ;
 
 # changeable street directions
 set changestreet within kruispunt cross kruispunt  ;
 var richtinggebruikt { changestreet } integer >=0;
 
-set straat = initialstraat union changestreet; 
+set straat = fixstreet union changestreet; 
 param lengte { straat } default 1 integer; 
 
 set enkelrichting within changestreet;
