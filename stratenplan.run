@@ -6,9 +6,7 @@ option solver cplex;
 model '/home/rudy/Dropbox/IT/ampl/stratenplan/stratenplan.mod';
 data '/home/rudy/Dropbox/IT/ampl/stratenplan/stratenplan.dat';
 
-
 solve;
-
 
 # Print SVG file header.
 # ---------------------------------------------------------
@@ -18,7 +16,6 @@ printf "<?xml version=""1.0"" standalone=""yes""?>\n<!DOCTYPE svg PUBLIC ""-//W3
 
 
 # print definition of arrow naar svg bestand 
-
 print "<defs>  <marker id=""markerArrow"" markerWidth=""13"" markerHeight=""13"" refX=""20"" refY=""6"" orient=""auto""> <path d=""M2,2 L2,11 L10,6 L2,2"" style=""fill: #000000;"" /> </marker> </defs>" > '2018plan.svg';
 print "<defs>  <marker id=""markerArrow2"" markerWidth=""13"" markerUnits=""userSpaceOnUse"" markerHeight=""13"" refX=""20"" refY=""6"" orient=""auto""> <path d=""M2,2 L2,11 L10,6 L2,2"" style=""fill: #000002;"" /> </marker> </defs>" > '2018plan.svg';
 
@@ -26,7 +23,6 @@ print "<defs>  <marker id=""markerArrow2"" markerWidth=""13"" markerUnits=""user
 print "<rect x=""-35"" y=""-35"" height=""900"" width=""900"" style=""stroke:white; fill: white""/>" > '2018plan.svg';
 
 # Print the nieuwe straten 
-
 # color coding 
 # no change = black 
 # 2 way --> one way : brown
@@ -71,9 +67,6 @@ for {(i,j) in fixstreet}
 	}
 }
 
-
-
-
 # Print the nodes and their labels.
 # ---------------------------------------------------------
 for {i in kruispunt}
@@ -92,19 +85,16 @@ printf "<line stroke-width=""%g"" stroke=""brown"" x1=""%g"" y1=""%g"" x2=""%g""
 			3, 10, 10, 50, 10 > '2018plan.svg' ;
 printf "<text fill=""brown"" font-size=""%g"" x=""%g"" y=""%g"">%s</text>\n",
 	 20, 60, 15, "2way to 1way"> '2018plan.svg';
-
 # change direction 
 printf "<line stroke-width=""%g"" stroke=""forestgreen"" x1=""%g"" y1=""%g"" x2=""%g"" y2=""%g""/>\n",
 			3, 10, 30, 50, 30 > '2018plan.svg' ;
 printf "<text fill=""forestgreen"" font-size=""%g"" x=""%g"" y=""%g"">%s</text>\n",
 	 20, 60, 35, "changed direction"> '2018plan.svg';
-
 # 1 way to 2 way
 printf "<line stroke-width=""%g"" stroke=""gold"" x1=""%g"" y1=""%g"" x2=""%g"" y2=""%g""/>\n",
 			3, 10, 50, 50, 50 > '2018plan.svg' ;
 printf "<text fill=""gold"" font-size=""%g"" x=""%g"" y=""%g"">%s</text>\n",
 	 20, 60, 55, "1way to 2way"> '2018plan.svg';
-
 
 # Print the end of the file, and close it.
 # ---------------------------------------------------------
