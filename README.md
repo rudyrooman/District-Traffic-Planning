@@ -24,9 +24,9 @@ a. use xcoord/ycoord from step 2 to define nodes (crossroads a-k)
 
 b. define set of accesspoints to your district (toegangspoort set)   
 
-c. define set of all current street directions based on existing setup  
+c. define set of all current street directions based on existing setup ( currentstreet set) 
 
-d. define set of all changeable street directions (changestreet set). Make list as long as possible limited by calculation time and your AMPL license. Avoid repeats in initialstraat and changestreet.      
+d. define set of all changeable street directions (changestreet set). Make list as long as possible limited by calculation time and your AMPL license.      
 
 e. define length param. Actual length is irrelevant and default =1 (nodes in a graph). I use length=3 for traffic lights to consider time loss.       
 
