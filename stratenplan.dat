@@ -28,10 +28,6 @@ set toegangspoort = a o g r d ;
 set currentstreet = a b ,  a q , a r  ,b k ,c b ,  c d  , c r  ,d e    
          e f ,  e j ,f i ,  f g ,g n  ,h g ,i h , i j , i f ,j k , j i , j e 
          k l , k j , k a ,l m , l q , l p ,m h , m n , m j ,n o , n g ,o p , o n ,p o , p q , p l ,q a , q l , q p ,r a , r c ;
-
-# set of all fixed streets directions 
-set fixstreet = a b ,  a q , a r ,b k  ,c b ,  c d  , c r   ,d e  ,e f ,  e j ,f i ,  f g ,g n, i j , i f , j k , j i , j e ,k l , k j 
- k a ,l q , l p , m n ,n o , n g , o p , o n, p o , p q , p l, q a , q l , q p, r a , r c ;
 		 
 # set of all changeable street directions
 # always include both street directions for a changeable street         
