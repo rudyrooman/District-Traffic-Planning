@@ -11,12 +11,12 @@ set toegangspoort within kruispunt;
 # current plan 
 set currentstreet within kruispunt cross kruispunt  ;
 
-# fixed street directions
-set fixstreet within kruispunt cross kruispunt  ;
-
 # changeable street directions
 set changestreet within kruispunt cross kruispunt  ;
 var richtinggebruikt { changestreet } integer >=0;
+
+# fixed street directions
+set fixstreet = currentstreet diff changestreet  ;
 
 set straat = fixstreet union changestreet; 
 param lengte { straat } default 1 integer; 
