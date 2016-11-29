@@ -49,8 +49,6 @@ set inrijden = g j , o j , a m , g m ;
 # define maximum inbound distance from an accesspoint to a crossroad
 param  maxinafstand:= g j 3, o j 6, a m 3, g m 2;
 
-
-
 #list of streets with minimum of maximum outbound distance 
 set uitrijden= m g , m a ;
 # define maximum outbound distance from a crossroad to an accesspoint                   
